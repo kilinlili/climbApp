@@ -21,13 +21,9 @@ const SelectFile = (props) => {
     const reader = new FileReader();
 
     reader.readAsDataURL(files[0]);
-    // reader.onload = (e) => {
-    //   setPreview(e.target?.result);
-    // };
-    reader.addEventListener("load", (e) => {
-      console.log(e.target.result);
+    reader.onload = (e) => {
       setPreview(e.target?.result);
-    });
+    };
   };
 
   return (
