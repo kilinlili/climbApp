@@ -1,9 +1,6 @@
-import logo from "./logo.svg";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "./App.css";
-import BaseButton from "./components/BaseButton";
-import SelectFile from "./components/SelectFile";
+import SelectFile from "./components/modules/SelectFile";
 
 function App() {
   return (
@@ -14,15 +11,7 @@ function App() {
           {/* {} */}
           <div className="fetch-btn">
             <div>
-              <SelectFile>
-                <BaseButton
-                  name="POST"
-                  icon="UploadFileSharpIcon"
-                  color="info"
-                  valient="contained"
-                  hidden
-                />
-              </SelectFile>
+              <SelectFile />
             </div>
           </div>
         </div>
