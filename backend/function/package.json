@@ -1,0 +1,12 @@
+{
+  "name": "function",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cidr-matcher": "^2.1.1",
+    "express": "^4.18.2",
+    "path": "^0.12.7",
+    "qrcode": "^1.5.3"
+  }
+}

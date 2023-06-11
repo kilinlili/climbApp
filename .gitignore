@@ -24,6 +24,7 @@ yarn-error.log*
 
 # node_modules
 /node_modules/
+backend/function/node_modules/
 
 # COMMENT
 ## git rm -r --cached .
