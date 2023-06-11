@@ -15,6 +15,7 @@ import styled from "styled-components";
 const theme = createTheme({
   typography: {
     fontFamily: [
+      "Roboto",
       "-apple-system",
       "BlinkMacSystemFont",
       '"Segoe UI"',
@@ -24,11 +25,10 @@ const theme = createTheme({
 });
 
 export const SlideHeader = () => {
-  const headerMainColor = brown.A700;
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" style={{ background: headerMainColor }}>
+        <AppBar position="static" style={{ background: brown.A700 }}>
           <Toolbar>
             <IconButton
               size="large"
@@ -39,11 +39,7 @@ export const SlideHeader = () => {
             >
               <MenuIcon />
             </IconButton>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1, fontFamily: "Roboto" }}
-            >
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               climbApp
             </Typography>
             <Button color="inherit">How to Use</Button>
