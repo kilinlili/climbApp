@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "backend-modules": "./utils",
     "cidr-matcher": "^2.1.1",
     "express": "^4.18.2",
     "path": "^0.12.7",
