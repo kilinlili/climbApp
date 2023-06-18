@@ -26,7 +26,7 @@ const SelectFile = (props) => {
     }
     const reader = new FileReader();
 
-    reader.readAsDataURL(files[0]);
+    reader.readAsDataURL(files[0]); //ここ上下はどちらでもOK
     reader.onload = (e) => {
       setPreview(e.target?.result);
       setPostDisp(true);
@@ -63,7 +63,7 @@ const SelectFile = (props) => {
           Open Folder
         </Button>
         {preview && <PreviewImg preview={preview} />}
-        {postDisp && <PostButton />}
+        {postDisp && <PostButton data={preview} />}
       </Grid>
     </>
   );
