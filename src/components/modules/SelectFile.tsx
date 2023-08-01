@@ -1,22 +1,18 @@
 import React, { useState, useRef } from "react";
-import { Button, Box, colors, Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { brown } from "@mui/material/colors";
 import FolderOutlinedIcon from "@mui/icons-material/FolderOutlined";
-import VerticalAlignTopIcon from "@mui/icons-material/VerticalAlignTop";
-import styled from "styled-components";
-import { clear } from "@testing-library/user-event/dist/clear";
 import PostButton from "./PostButton";
 import PreviewImg from "./PreviewImg";
 
 const SelectFile = (props) => {
   const [preview, setPreview] = useState("");
-  //const [file, setFile] = useState();
 
   const inputRef = useRef(null);
   const [postDisp, setPostDisp] = useState(false);
 
   const fileUpload = () => {
-    inputRef.current.click();
+    inputRef?.current?.click();
   };
 
   const previewImage = (e) => {
@@ -26,7 +22,7 @@ const SelectFile = (props) => {
     }
     const reader = new FileReader();
 
-    reader.readAsDataURL(files[0]); //ここ上下はどちらでもOK
+    reader.readAsDataURL(files[0]);
     reader.onload = (e) => {
       setPreview(e.target?.result);
       setPostDisp(true);

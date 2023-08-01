@@ -1,4 +1,6 @@
-import React, { useState, useRef } from "react";
+import React from "react";
+import { OpenSideber } from "./leftDrawer";
+import { useState } from "react";
 import { brown } from "@mui/material/colors";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import {
@@ -8,9 +10,10 @@ import {
   Toolbar,
   IconButton,
   Typography,
+  Drawer,
+  ListItem,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import styled from "styled-components";
 
 const theme = createTheme({
   typography: {
@@ -25,6 +28,7 @@ const theme = createTheme({
 });
 
 export const SlideHeader = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ flexGrow: 1 }}>
@@ -36,9 +40,15 @@ export const SlideHeader = () => {
               color="inherit"
               aria-label="menu"
               sx={{ mr: 2 }}
+              onClick={() => setIsOpen(true)}
             >
               <MenuIcon />
             </IconButton>
+            <Drawer
+              anchor="left"
+              open={isOpen}
+              onClose={() => setIsOpen(false)}
+            ></Drawer>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               climbApp
             </Typography>

@@ -1,9 +1,4 @@
-import React, { useState, useRef } from "react";
-import { Button, Box, colors } from "@mui/material";
-import { brown } from "@mui/material/colors";
-import FolderOutlinedIcon from "@mui/icons-material/FolderOutlined";
-import VerticalAlignTopIcon from "@mui/icons-material/VerticalAlignTop";
-import styled from "styled-components";
+import { Box } from "@mui/material";
 
 const PreviewImg = (props) => {
   return (
