@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 from mangum import Mangum
-from routers import test, holdImage
+from src.routers import test, holdImage
 
 app = FastAPI()
 
@@ -8,7 +8,7 @@ app = FastAPI()
 async def read_item(id: int):
     return {"id": id}
 
-@app.get("/sampleApi2/hello")
+@app.get("/sampleApi2/hello")# curl -X GET "http://localhost:8000/sampleApi2/hello" -H  "accept: application/json"
 async def hello():
     return {"message": "Hello"}
 

@@ -1,5 +1,4 @@
 #!/bin/bash -x
 PWD=$(pwd)
 
-cd ${PWD}/src
-uvicorn main:app --reload
+uvicorn src.main:app --reload

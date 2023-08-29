@@ -20,15 +20,12 @@ async def get_model(model_name: ModelName):＜＝この部分をパスパラメ�
 optional な書き方が結構冗長に見えるんだけどな。
 async def query_param(aaa: str, bbb: Union[str, None] = None)
 
-
 async def read_items(
-    q: Union[str, None] = Query(
-        default=None, min_length=3, max_length=50, pattern="^fixedquery$"
-    )
+q: Union[str, None] = Query(
+default=None, min_length=3, max_length=50, pattern="^fixedquery$"
+)
 ):
 という感じで色々オプションがある。必須なら
 async def read_items(q: str = Query(min_length=3)):
 
 この辺は文字列バリデーション。
-
-
