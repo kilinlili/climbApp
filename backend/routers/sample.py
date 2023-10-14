@@ -4,16 +4,25 @@ from pydantic import BaseModel
 
 router = APIRouter()
 
-@router.get("/testApi/test", tags=["test"])
-async def test():
-    return {"this": "test"}
+
+@router.get("/sampleApi1/{id}")
+async def read_item(id: int):
+    return {"id": id}
+
+@router.get("/sampleApi2/hello")# curl -X GET "http://localhost:8000/sampleApi2/hello" -H  "accept: application/json"
+async def hello():
+    return {"message": "Hello"}
+
+@router.get("/sampleApi/sample", tags=["sample"])
+async def sample():
+    return {"this": "sample"}
 
 class fruits(str, Enum):
     apple = "apple"
     orange = "orange"
     banana = "banana"
 
-@router.get("/testApi/{item}", tags=["test"]) #path parameter
+@router.get("/sampleApi/{item}", tags=["sample"]) #path parameter
 async def path_param(item: fruits):
     if item == fruits.apple:
         return {"item": "apple"}
@@ -24,8 +33,8 @@ async def path_param(item: fruits):
     
 from typing import Optional, Union
 
-@router.post("/testApi/", tags=["test"]) #query parameter
-async def query_param(aaa: str, bbb: Union[str, None] = None):# curl -X POST "http://localhost:8000/testApi/?aaa=aaa&bbb=bbb"
+@router.post("/sampleApi/", tags=["sample"]) #query parameter
+async def query_param(aaa: str, bbb: Union[str, None] = None):# curl -X POST "http://localhost:8000/sampleApi/?aaa=aaa&bbb=bbb"
     return {"aaa": aaa, "bbb": bbb}
 ## bbb: Optional[str] = Noneの方がわかりやすいと思う。Union[str, None] = Noneは、Optional[str] = Noneのエイリアス
 
@@ -34,12 +43,12 @@ class Item(BaseModel):#pydantic model
     price: float
     is_offer: Optional[bool] = None
 
-@router.post("/testApi/testBody", tags=["test"]) #request body
-async def request_body(item: Item):# curl -X POST "http://localhost:8000/testApi/testBody" -H "Content-Type: application/json" -H "Content-Type: application/json" -d '{"name":"pen","price":0,"is_offer":true}'
+@router.post("/sampleApi/sampleBody", tags=["sample"]) #request body
+async def request_body(item: Item):# curl -X POST "http://localhost:8000/sampleApi/sampleBody" -H "Content-Type: application/json" -H "Content-Type: application/json" -d '{"name":"pen","price":0,"is_offer":true}'
     return item
 
 # path parameter + request body
-@router.put("/testApi/put/{item_id}") # https://amzn.to/3EDqdye                      
+@router.put("/sampleApi/put/{item_id}") # https://amzn.to/3EDqdye                      
 async def create_item(item_id: str, item: Item):
     return {"item_id": item_id, **item.dict()}
 
