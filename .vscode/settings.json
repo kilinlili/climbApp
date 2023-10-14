@@ -1,0 +1,7 @@
+{
+  "python.linting.enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.formatting.provider": "black",
+  "python.pythonPath": "${workspaceFolder}/backend/lambda-env/bin/python",
+  "python.envFile": "${workspaceFolder}/backend/lambda-env"
+}
