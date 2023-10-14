@@ -1,7 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
 /.pnp
 .pnp.js
 
@@ -19,21 +18,32 @@
 .env.production.local
 .DS_Store
 .vscode
-__pycache__
+.pytest_cache
+__pycache__/
+node_modules/
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # node_modules
-/node_modules/
-backend/function/node_modules/
+
 
 # backend
-backend/lambda-env
-backend/src/__pycache__
+## python env directory
+*-env
 
 
-# COMMENT
-## git rm -r --cached .
-## 上記でキャッシュを削除して反映
+# terraform
+*.tfstate*
+*.tfvars
+.terraform
+*.hcl
+
+# others(sandbox)
+sample
+
+
+# reflection
+# 1. git rm -r --cached . 
+# 2. add, commit 

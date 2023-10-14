@@ -39,7 +39,7 @@ async def request_body(item: Item):# curl -X POST "http://localhost:8000/testApi
     return item
 
 # path parameter + request body
-@router.put("/testApi/put/{item_id}")
+@router.put("/testApi/put/{item_id}") # https://amzn.to/3EDqdye                      
 async def create_item(item_id: str, item: Item):
     return {"item_id": item_id, **item.dict()}
 
