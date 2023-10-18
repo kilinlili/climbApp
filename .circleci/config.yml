@@ -11,16 +11,15 @@ jobs:
       - run:
           name: install pytest
           command: |
-            python3 -m venv venv
+            python -m venv venv
             bash venv/bin/activate
             pip install pytest fastapi
       - run:
           name: run unittest by pytest
           command: |
             source venv/bin/activate
-            ls -lt
             cd backend
-            python3 -m pytest
+            python -m pytest
       - slack/notify:
           template: basic_fail_1
           event: fail
