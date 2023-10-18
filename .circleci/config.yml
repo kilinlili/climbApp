@@ -1,28 +1,29 @@
 version: 2.1
 orbs:
-  slack: circleci/slack@4.9.3
+  slack: circleci/slack@4.12.5
 jobs:
-  notify:
+  build:
     docker:
-      - image: 'cimg/base:stable'
+      - image: "cimg/python:3.12.0"
     steps:
+      - checkout # ~/project dir
+      - run:
+          name: install pytest
+          command: |
+            python3 -m venv venv
+            .venv/bin/activate
+            pip install pytest
+      - run:
+          name: run unittest by pytest
+          command: |
+            .venv/bin/activate
+            python3 -m pytest
       - slack/notify:
-          custom: |
-            {
-              "blocks": [
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "plain_text",
-                      "text": "*This is a text notification ok*",
-                      "emoji": true
-                    }
-                  ]
-                }
-              ]
-            }
-          event: always
+          template: basic_fail_1
+          event: fail
+      - slack/notify:
+          template: basic_success_1
+          event: pass
 workflows:
   send-notification:
     jobs:
