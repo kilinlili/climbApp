@@ -13,7 +13,7 @@ jobs:
           command: |
             python3 -m venv venv
             bash venv/bin/activate
-            pip install pytest
+            pip install pytest fastapi
       - run:
           name: run unittest by pytest
           command: |
