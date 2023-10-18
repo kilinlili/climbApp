@@ -18,6 +18,7 @@ jobs:
           name: run unittest by pytest
           command: |
             source venv/bin/activate
+            ls -lt
             cd backend
             python3 -m pytest
       - slack/notify:
