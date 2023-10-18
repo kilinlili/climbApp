@@ -13,7 +13,7 @@ jobs:
           command: |
             python -m venv venv
             source venv/bin/activate
-            pip install pytest fastapi
+            pip install -r requirements.txt
       - run:
           name: run unittest by pytest
           command: |
